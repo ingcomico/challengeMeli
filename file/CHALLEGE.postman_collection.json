@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "9b44cc6d-04fb-4340-8348-161f7b30b92f",
+		"name": "CHALLEGE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DATA SATELLITE POSITION",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"satellites\":\n        [\n            {\n                \"name\": \"kenobi\",\n                \"distance\": 670.86,\n                \"message\": [\n                    null, \"manuel\",\"...\"\n                ]\n            },\n            {\n                \"name\": \"skywalker\",\n                \"distance\": 200,\n                \"message\": [\"hola\", \"...\", \"...\"]\n            },\n            {\n                \"name\": \"sato\",\n                \"distance\": 400,\n                \"message\": [\"\", \"...\", \"Alejandro\"]\n            }\n        ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/topsecret",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"topsecret"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD DATA SATELLITE (SPLIT)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"distance\": 100,\n    \"message\": [\n        null, \"manuel\",\"...\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}topsecret_split/kenobi",
+					"host": [
+						"{{url}}topsecret_split"
+					],
+					"path": [
+						"kenobi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE DATA SATELLITE (SPLIT)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"distance\": 200,\n    \"message\": [\n        null, \"manuel\",\"...\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}topsecret_split/update/kenobi",
+					"host": [
+						"{{url}}topsecret_split"
+					],
+					"path": [
+						"update",
+						"kenobi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QUERY DATA SATELLITE (SPLIT)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/topsecret_split/query",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"topsecret_split",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PROCESS  DATA SATELLITE (SPLIT)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/topsecret_split",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"topsecret_split"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
