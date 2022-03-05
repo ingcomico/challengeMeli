@@ -14,7 +14,7 @@ A continuación se listan los archivos dentro del repositorio:
 1. Carpeta src:
     - Codigo Fuente carpeta src.
 2. Carpeta file:
-    - Archivo postman.json en el cual encontrara los apis disponibles.
+    - Archivo CHALLEGE.postman_collection.json en el cual encontrara los apis disponibles.
 
 ## Consideraciones:
 
