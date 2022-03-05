@@ -83,7 +83,7 @@ public class StarWarService {
         return challengeResponse;
     }
 
-    public List<Satellite> addSatellite(Satellite satellite) throws CustomException {
+    public void addSatellite(Satellite satellite) throws CustomException {
         if(!(satellite.getName().equalsIgnoreCase("kenobi") || satellite.getName().equalsIgnoreCase("skywalker") || satellite.getName().equalsIgnoreCase("sato"))){
             throw  new CustomException(HttpStatus.BAD_REQUEST, "The satellite that is sending information is not registered.");
         }
@@ -92,12 +92,11 @@ public class StarWarService {
             singletonSatellite.getListSatellite().add(satellite);
         }else{
             if(singletonSatellite.getListSatellite().stream().anyMatch(x -> x.getName().equalsIgnoreCase(satellite.getName()))){
-                singletonSatellite.getListSatellite().replaceAll(x -> x.getName().equalsIgnoreCase(satellite.getName()) ? satellite : x);
+                throw new CustomException(HttpStatus.BAD_REQUEST, "Information has already been sent for that satellite, if you want to update the information, use the service POST /topsecret_split/update/{satellite_name}");
             }else{
                 singletonSatellite.getListSatellite().add(satellite);
             }
         }
-        return singletonSatellite.getListSatellite();
     }
 
     public void objectValidate(Object object) throws Exception {
@@ -109,5 +108,25 @@ public class StarWarService {
         }
         if(!violations.isEmpty())
             throw new Exception(dataError);
+    }
+
+    public void updateSatellite(Satellite satellite) throws Exception {
+        if(!(satellite.getName().equalsIgnoreCase("kenobi") || satellite.getName().equalsIgnoreCase("skywalker") || satellite.getName().equalsIgnoreCase("sato"))){
+            throw  new CustomException(HttpStatus.BAD_REQUEST, "The satellite that is sending information is not registered.");
+        }
+        SingletonSatellite singletonSatellite = SingletonSatellite.getInfoSatellites();
+        if(singletonSatellite.getListSatellite().isEmpty()){
+            singletonSatellite.getListSatellite().add(satellite);
+        }else{
+            if(singletonSatellite.getListSatellite().stream().anyMatch(x -> x.getName().equalsIgnoreCase(satellite.getName()))){
+                singletonSatellite.getListSatellite().replaceAll(x -> x.getName().equalsIgnoreCase(satellite.getName()) ? satellite : x);
+            }else{
+                throw new CustomException(HttpStatus.BAD_REQUEST, "There is no information for this satellite, please use the service POST /topsecret_split/{satellite_name} to add the information");
+            }
+        }
+    }
+
+    public List<Satellite> querySatellite() throws Exception{
+        return SingletonSatellite.getInfoSatellites().getListSatellite();
     }
 }

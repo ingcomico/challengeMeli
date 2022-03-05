@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +49,29 @@ public class StarWarController {
 
         Satellite satellite = new Satellite(satelliteName, challengeRequestSplit.getDistance(), challengeRequestSplit.getMessage());
 
-        List<Satellite> listSatellite = starWarService.addSatellite(satellite);
+        starWarService.addSatellite(satellite);
+
+        return new ResponseEntity<Object>(null, httpStatus);
+    }
+
+    @PostMapping(value = "/topsecret_split/update/{satellite_name}")
+    @ResponseBody
+    public ResponseEntity<Object> updateInfoSatelliteSplit(@Valid @RequestBody ChallengeRequestSplit challengeRequestSplit, @PathVariable("satellite_name") String satelliteName) throws Exception {
+        HttpStatus httpStatus = HttpStatus.OK;
+
+        Satellite satellite = new Satellite(satelliteName, challengeRequestSplit.getDistance(), challengeRequestSplit.getMessage());
+
+        starWarService.updateSatellite(satellite);
+
+        return new ResponseEntity<Object>(null, httpStatus);
+    }
+
+    @GetMapping(value = "/topsecret_split/query")
+    @ResponseBody
+    public ResponseEntity<Object> queryInfoSatelliteSplit() throws Exception {
+        HttpStatus httpStatus = HttpStatus.OK;
+
+        List<Satellite> listSatellite = starWarService.querySatellite();
 
         return new ResponseEntity<Object>(listSatellite, httpStatus);
     }
