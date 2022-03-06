@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/ingcomico/IdeaProjects/challenger/src/main/java</OriginalElement>
+  <nodes>
+    <node x="0.0" y="700.0">co.com.meli.challenger.model.Position</node>
+    <node x="0.0" y="1076.0">co.com.meli.challenger.handler.ErrorHandler</node>
+    <node x="416.0" y="0.0">co.com.meli.challenger.model.ErrorInfo</node>
+    <node x="249.0" y="700.0">co.com.meli.challenger.controller.StarWarController</node>
+    <node x="0.0" y="1241.0">co.com.meli.challenger.OpenApiConfig</node>
+    <node x="0.0" y="425.0">co.com.meli.challenger.service.StarWarService</node>
+    <node x="0.0" y="910.0">co.com.meli.challenger.model.ChallegeResponseQueryResponse</node>
+    <node x="1006.0" y="425.0">co.com.meli.challenger.model.ChallengeRequestSplit</node>
+    <node x="0.0" y="215.0">co.com.meli.challenger.model.ChallengeResponseWarning</node>
+    <node x="402.0" y="910.0">co.com.meli.challenger.model.ChallengeRequest</node>
+    <node x="47.0" y="0.0">co.com.meli.challenger.model.ChallengeResponse</node>
+    <node x="705.0" y="910.0">co.com.meli.challenger.model.SingletonSatellite</node>
+    <node x="843.0" y="1076.0">co.com.meli.challenger.ServletInitializer</node>
+    <node x="831.0" y="700.0">co.com.meli.challenger.handler.CustomException</node>
+    <node x="284.0" y="1241.0">co.com.meli.challenger.ChallengerApplication</node>
+    <node x="682.0" y="425.0">co.com.meli.challenger.model.Satellite</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="co.com.meli.challenger.model.ChallengeResponseWarning" target="co.com.meli.challenger.model.ChallengeResponse" relationship="GENERALIZATION">
+      <point x="0.0" y="-82.5" />
+      <point x="0.0" y="82.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.5168287210172027" showDependencies="false" x="665.0" y="658.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
