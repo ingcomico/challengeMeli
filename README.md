@@ -15,6 +15,7 @@ A continuación se listan los archivos dentro del repositorio:
     - Codigo Fuente carpeta src.
 2. Carpeta file:
     - Archivo CHALLEGE.postman_collection.json en el cual encontrara los apis disponibles.
+    - Archivo java.uml en el cual se muestra la estructura de clases del proyecto.
 
 ## Consideraciones:
 
@@ -83,10 +84,12 @@ Figura 8.
 
 - GET /topsecret_split/query/{satellite_name}  [EXTRA]
 En este servicio se realiza la consulta de la informacion almacenada de los satelites para la variante split 
-    
-## Diagrama de Clase.
+
+## Swagger
+
+![image](https://user-images.githubusercontent.com/65415988/156906215-5f6a8672-0d68-4ba6-8cbd-f08885d5c2a7.png)
 
 ## URL del Despliegue.
 
   - EndPoint:
-  - Swagger:
+  - Swagger: {{EndPoint}}/swagger-ui/index.html
