@@ -97,5 +97,5 @@ Este servicio permite consultar el log de todos los mensajes exitosos decodifica
 
 ## URL del Despliegue.
 
-  - EndPoint:
+  - EndPoint: http://starwar-env-1.eba-2uecspmm.us-east-2.elasticbeanstalk.com
   - Swagger: {{EndPoint}}/swagger-ui/index.html
