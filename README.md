@@ -7,6 +7,7 @@ Para el desarrollo de esta aplicacion se utilizo:
 
 - Java 8.
 - Framework SpringBoot.
+- JPS H2
 - Integracion Swagger org.springdoc.
 - Postman para pruebas API.
 
@@ -86,6 +87,9 @@ Figura 8.
 
 - GET /topsecret_split/query/{satellite_name}  [EXTRA]
 En este servicio se realiza la consulta de la informacion almacenada de los satelites para la variante split 
+
+- GET /topsecret_repo  [EXTRA]
+Este servicio permite consultar el log de todos los mensajes exitosos decodificados, adicional a eso peromite identificar el metodod en el que fue enviado el mensaje, split o normal.
 
 ## Swagger
 
