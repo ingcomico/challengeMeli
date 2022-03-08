@@ -7,6 +7,8 @@ Para el desarrollo de esta aplicacion se utilizo:
 
 - Java 8.
 - Framework SpringBoot.
+- Integracion Swagger org.springdoc.
+- Postman para pruebas API.
 
 ## Contenido
 A continuación se listan los archivos dentro del repositorio:
