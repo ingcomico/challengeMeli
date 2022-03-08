@@ -1,18 +1,21 @@
 package co.com.meli.challenger.controller;
 
 import co.com.meli.challenger.model.*;
+import co.com.meli.challenger.repository.MessageRepository;
 import co.com.meli.challenger.service.StarWarService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/")
@@ -21,7 +24,9 @@ public class StarWarController {
     private static Double[] SAT_KENOBI = {-500.0, -200.0, 0.0};
     private static Double[] SAT_SKYWALKER = {100.0, -100.0, 0.0};
     private static Double[] SAT_SATO = {500.0, 100.0, 0.0};
-    ;
+
+    @Autowired
+    private MessageRepository repository;
 
     private StarWarService starWarService = new StarWarService();
 
@@ -46,6 +51,8 @@ public class StarWarController {
 
         challengeResponse.setPosition(position);
         challengeResponse.setMessage(message);
+
+        repository.save(new DataMessage(0, String.valueOf(SAT_KENOBI[2]), String.valueOf(SAT_SATO[2]), String.valueOf(SAT_SKYWALKER[2]), message,"NORMAL", String.valueOf(position.getX()), String.valueOf(position.getY())));
 
         return new ResponseEntity<Object>(challengeResponse, httpStatus);
     }
@@ -123,8 +130,23 @@ public class StarWarController {
         challengeResponse.setPosition(position);
         challengeResponse.setMessage(message);
 
+        repository.save(new DataMessage(0, String.valueOf(SAT_KENOBI[2]), String.valueOf(SAT_SATO[2]), String.valueOf(SAT_SKYWALKER[2]), message,"SPLIT", String.valueOf(position.getX()), String.valueOf(position.getY())));
+
         SingletonSatellite.getInfoSatellites().setListSatellite(new ArrayList());
 
         return new ResponseEntity<Object>(challengeResponse, httpStatus);
+    }
+
+    @Operation(summary = "This service obtain log of message decode.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Array of log message satellites", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = RepositoryResponse.class)) })})
+    @GetMapping(value = "/topsecret_repo")
+    @ResponseBody
+    public ResponseEntity<Object> getDataRepo() throws Exception {
+        HttpStatus httpStatus = HttpStatus.OK;
+
+        RepositoryResponse repositoryResponse = new RepositoryResponse(repository.findAll());
+
+        return new ResponseEntity<Object>(repositoryResponse, httpStatus);
     }
 }
